@@ -61,7 +61,7 @@ def main():
         if step % 100 == 0:
             print(f"Step {step} - ELBO: {loss:.2f}")
     
-    with open(f"{gene.replace('/', '--')}.txt", "w") as f:
+    with open(f"output/macrophage/{gene.replace('/', '--')}.txt", "w") as f:
         f.write("Model parameters:\n")
         for name, param in pyro.get_param_store().items():
             f.write(f"{name}: {param.detach().clone().tolist()}\n")
