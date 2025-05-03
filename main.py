@@ -26,6 +26,7 @@ def main():
     args = parser.parse_args()
 
     adata = sc.read_h5ad(args.adata)
+    adata = adata[adata.obs["Cell.Subtype"].eq("Macrophage")].copy()
     gene = adata.var_names[args.gene]
 
     df = adata.obs \
